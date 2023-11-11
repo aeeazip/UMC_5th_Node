@@ -1,7 +1,6 @@
-const express = require("express");
-const router = express.Router();
-const userController = require("../controller/memberController");
+import express from "express";
+import { getUser } from "../controller/memberController.js";
 
-// router mapping 추가
-router.get("/test", userController.getUser);
-module.exports = router;
+export const memberRouter = express.Router();
+
+memberRouter.get("/test", getUser);

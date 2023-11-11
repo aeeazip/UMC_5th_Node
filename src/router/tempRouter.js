@@ -1,7 +1,7 @@
-const express = require("express");
-const router = express.Router();
-const userController = require("../controller/tempController");
+import express from "express";
+import { tempTest, tempException } from "../controller/tempController.js";
 
-// router mapping 추가
-router.get("/test", tempController.getTemp);
-module.exports = router;
+export const tempRouter = express.Router();
+
+tempRouter.get("/test", tempTest);
+tempRouter.get("/exception/:flag", tempException);
