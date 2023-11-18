@@ -1,4 +1,6 @@
 import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
 import { tempRouter } from "./src/router/tempRouter.js";
 import { memberRouter } from "./src/router/memberRouter.js";
 import { missionRouter } from "./src/router/missionRouter.js";

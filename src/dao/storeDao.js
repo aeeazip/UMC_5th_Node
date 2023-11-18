@@ -1,13 +1,13 @@
-import { pool } from "../../config/database";
-import { BaseError } from "../../config/error";
-import { status } from "../../config/responseStatus";
+import { pool } from "../../config/database.js";
+import { BaseError } from "../../config/error.js";
+import { status } from "../../config/responseStatus.js";
 import {
   confirmStore,
   confirmReview,
   insertReviewSql,
   insertStoreMissionSql,
-  insertMemberMisisonSql,
-} from "./sql/storeSql";
+  insertMemberMissionSql,
+} from "./sql/storeSql.js";
 
 // 리뷰 작성
 export const addReview = async (data) => {

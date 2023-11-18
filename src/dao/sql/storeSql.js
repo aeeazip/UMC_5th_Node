@@ -7,8 +7,11 @@ export const confirmReview =
 export const insertReviewSql =
   "INSERT INTO Review(member_id, store_id, mission_id, content, score) VALUES (?, ?, ?, ?, ?);";
 
-export const insertMissionSql =
+export const insertStoreMissionSql =
   "INSERT INTO Store_Misison(store_id, point, price) VALUES (?, ?, ?);";
 
 export const confirmMission =
   "SLECT EXISTS (SELECT 1 FROM Member_Mission WHERE member_id = ? and status = ? and store_mission_id = ?) as isExistMission;";
+
+export const insertMemberMissionSql =
+  "INSERT INTO Member_Misison(store_mission_id, member_id, status) VALUES (?, ?, ?);";

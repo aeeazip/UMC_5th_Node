@@ -3,7 +3,7 @@ import { response } from "../../config/response.js";
 import {
   writeReview,
   insertMission,
-  insertMisisonToMemberId,
+  insertMissionToMemberId,
 } from "../service/storeService.js";
 
 // 1. 리뷰 작성 API
@@ -28,7 +28,7 @@ export const challengeMission = async (req, res, next) => {
   res.send(
     response(
       status.SUCCESS,
-      await insertMisisonToMemberId(req.params.storeMissionId)
+      await insertMissionToMemberId(req.params.storeMissionId)
     )
   );
 };
