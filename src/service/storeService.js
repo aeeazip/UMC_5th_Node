@@ -1,8 +1,12 @@
-import BaseError from "../../config/error";
-import status from "../../config/responseStatus";
-import { addReview, addMission, addMissionToMemberId } from "../dao/storeDao";
+import { BaseError } from "../../config/error.js";
+import { status } from "../../config/responseStatus.js";
+import {
+  addReview,
+  addMission,
+  addMissionToMemberId,
+} from "../dao/storeDao.js";
 
-export const reviewWrite = async (storeId, body) => {
+export const writeReview = async (storeId, body) => {
   const reviewWriteData = await addReview({
     memberId: 1,
     storeId: storeId,
@@ -18,7 +22,7 @@ export const reviewWrite = async (storeId, body) => {
   }
 };
 
-export const insertMisison = async (storeId, body) => {
+export const insertMission = async (storeId, body) => {
   const insertMissionData = await addMission({
     storeId: storeId,
     point: body.point,

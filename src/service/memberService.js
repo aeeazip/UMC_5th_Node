@@ -1,18 +1,18 @@
-import BaseError from "../../config/error";
-import status from "../../config/responseStatus";
-import signupResponseDTO from "../dto/memberResDto";
+import { BaseError } from "../../config/error.js";
+import { status } from "../../config/responseStatus.js";
+import { signupResponseDTO } from "../dto/memberResDto.js";
 import {
   addMember,
   getMember,
   getMemberPreferToMemberID,
   setPrefer,
-} from "../dao/memberDao";
+} from "../dao/memberDao.js";
 
 export const joinUser = async (body) => {
   const birth = new Date(body.birthYear, body.birthMonth, body.birthDay);
   const prefer = body.prefer;
 
-  const joinUserData = await addUser({
+  const joinUserData = await addMember({
     email: body.email,
     name: body.name,
     gender: body.gender,
@@ -29,8 +29,8 @@ export const joinUser = async (body) => {
       await setPrefer(joinUserData, prefer[i]);
     }
     return signupResponseDTO(
-      await getUser(joinUserData),
-      await getUserPreferToUserID(joinUserData)
+      await getMember(joinUserData),
+      await getMemberPreferToMemberID(joinUserData)
     );
   }
 };

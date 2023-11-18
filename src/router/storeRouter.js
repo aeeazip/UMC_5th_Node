@@ -16,4 +16,4 @@ storeRouter.post("/:storeId/review", asyncHandler(reviewWrite));
 storeRouter.post("/:storeId", asyncHandler(addMission));
 
 // 3. 가게의 미션을 도전중인 미션에 추가 API
-storeRouter.post("/:missionId/challenge", aysncHandler(challengeMission));
+storeRouter.post("/:storeMissionId/challenge", asyncHandler(challengeMission));

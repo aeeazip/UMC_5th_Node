@@ -1,13 +1,13 @@
-import { pool } from "../../config/database";
-import { BaseError } from "../../config/error";
-import { status } from "../../config/responseStatus";
+import { pool } from "../../config/database.js";
+import { BaseError } from "../../config/error.js";
+import { status } from "../../config/responseStatus.js";
 import {
   connectFoodCategory,
   confirmEmail,
   getMemberID,
   insertMemberSql,
   getPreferToMemberID,
-} from "./sql/memberSql";
+} from "./sql/memberSql.js";
 
 // Member 데이터 삽입
 export const addMember = async (data) => {
