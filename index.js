@@ -2,6 +2,7 @@ import express from "express";
 import { tempRouter } from "./src/router/tempRouter.js";
 import { memberRouter } from "./src/router/memberRouter.js";
 import { missionRouter } from "./src/router/missionRouter.js";
+import { storeRouter } from "./src/router/storeRouter.js";
 import { status } from "./config/responseStatus.js";
 import { response } from "./config/response.js";
 
@@ -25,6 +26,7 @@ app.use("/api-docs", SwaggerUi.serve, SwaggerUi.setup(specs));
 app.use("/temp", tempRouter);
 app.use("/member", memberRouter);
 app.use("/mission", missionRouter);
+app.use("/store", storeRouter);
 
 app.use((req, res, next) => {
   const err = new BaseError(status.NOT_FOUND);

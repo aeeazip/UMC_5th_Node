@@ -1,10 +1,10 @@
 import BaseError from "../../config/error";
 import status from "../../config/responseStatus";
-import signupResponseDTO from "../dto/signupResDto";
+import signupResponseDTO from "../dto/memberResDto";
 import {
-  addUser,
-  getUser,
-  getUserPreferToUserID,
+  addMember,
+  getMember,
+  getMemberPreferToMemberID,
   setPrefer,
 } from "../dao/memberDao";
 
