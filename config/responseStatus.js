@@ -55,6 +55,12 @@ export const status = {
     code: "MEMBER4002",
     message: "닉네임은 필수입니다.",
   },
+  EMAIL_ALREADY_EXIST: {
+    status: StatusCodes.BAD_REQUEST,
+    isSuccess: false,
+    code: "MEMBER4003",
+    message: "이미 존재하는 이메일입니다.",
+  },
 
   // article err
   ARTICLE_NOT_FOUND: {
@@ -62,5 +68,19 @@ export const status = {
     isSuccess: false,
     code: "ARTICLE4001",
     message: "게시글이 없습니다.",
+  },
+
+  // store err
+  REVIEW_ALREADY_EXIST: {
+    status: StatusCodes.BAD_REQUEST,
+    isSuccess: false,
+    code: "STORE4001",
+    message: "이미 리뷰를 작성했습니다.",
+  },
+  STORE_NOT_EXIST: {
+    status: StatusCodes.BAD_REQUEST,
+    isSuccess: false,
+    code: "STORE4002",
+    message: "존재하지 않는 가게입니다.",
   },
 };
