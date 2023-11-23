@@ -4,6 +4,7 @@ import {
   writeReview,
   insertMission,
   insertMissionToMemberId,
+  getReview,
 } from "../service/storeService.js";
 
 // 1. 리뷰 작성 API
@@ -30,5 +31,12 @@ export const challengeMission = async (req, res, next) => {
       status.SUCCESS,
       await insertMissionToMemberId(req.params.storeMissionId)
     )
+  );
+};
+
+// 4. 리뷰 조회 API
+export const reviewPreview = async (req, res, next) => {
+  return res.send(
+    response(status.SUCCESS, await getReview(req.params.storeId, req.query))
   );
 };
