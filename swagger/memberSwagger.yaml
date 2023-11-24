@@ -112,3 +112,13 @@ paths:
               message:
                 type: string
                 example: 서버 에러, 관리자에게 문의 바랍니다.
+
+  /member/:memberId/review:
+    get:
+      tags: Member
+        summary: 내가 작성한 리뷰 목록
+
+  /member/:memberId/mission:
+    get:
+      tags: Member
+        summary: 내가 진행중인 미션 목록

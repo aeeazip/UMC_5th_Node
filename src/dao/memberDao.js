@@ -7,6 +7,10 @@ import {
   getMemberID,
   insertMemberSql,
   getPreferToMemberID,
+  getReviewByMemberIdAndReviewIdAtFirst,
+  getReviewByMemberIdAndReviewId,
+  getMissionByMemberIdAndMissionId,
+  getMissionByMemberIdAndMissionIdAtFirst,
 } from "./sql/memberSql.js";
 
 // Member 데이터 삽입
@@ -80,6 +84,66 @@ export const getMemberPreferToMemberID = async (memberID) => {
     conn.release();
 
     return prefer;
+  } catch (err) {
+    throw new BaseError(status.BAD_REQUEST);
+  }
+};
+
+// 내가 작성한 리뷰 목록
+export const getPreviewReviewByMemberId = async (cursorId, size, memberId) => {
+  try {
+    const conn = await pool.getConnection();
+
+    if (
+      cursorId == "undefined" ||
+      typeof cursorId == "undefined" ||
+      cursorId == null
+    ) {
+      const [reviews] = await pool.query(
+        getReviewByMemberIdAndReviewIdAtFirst,
+        [parseInt(memberId), parseInt(size)]
+      );
+      conn.release();
+      return reviews;
+    } else {
+      const [reviews] = await pool.query(getReviewByMemberIdAndReviewId, [
+        parseInt(memberId),
+        parseInt(cursorId),
+        parseInt(size),
+      ]);
+      conn.release();
+      return reviews;
+    }
+  } catch (err) {
+    throw new BaseError(status.BAD_REQUEST);
+  }
+};
+
+// 내가 진행중인 미션 목록
+export const getMissionActiveByMemberId = async (cursorId, size, memberId) => {
+  try {
+    const conn = await pool.getConnection();
+
+    if (
+      cursorId == "undefined" ||
+      typeof cursorId == "undefined" ||
+      cursorId == null
+    ) {
+      const [missions] = await pool.query(
+        getMissionByMemberIdAndMissionIdAtFirst,
+        [parseInt(memberId), parseInt(size)]
+      );
+      conn.release();
+      return missions;
+    } else {
+      const [missions] = await pool.query(getMissionByMemberIdAndMissionId, [
+        parseInt(memberId),
+        parseInt(cursorId),
+        parseInt(size),
+      ]);
+      conn.release();
+      return missions;
+    }
   } catch (err) {
     throw new BaseError(status.BAD_REQUEST);
   }
