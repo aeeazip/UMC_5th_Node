@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import { healthRouter } from "./src/router/healthRouter.js";
 import { tempRouter } from "./src/router/tempRouter.js";
 import { memberRouter } from "./src/router/memberRouter.js";
 import { missionRouter } from "./src/router/missionRouter.js";
@@ -24,7 +25,13 @@ app.use(express.urlencoded({ extended: false })); // 단순 객체 문자열 형
 // swagger
 app.use("/api-docs", SwaggerUi.serve, SwaggerUi.setup(specs));
 
+// healthCheck
+app.use("/health", healthRouter);
+
 // router setting
+app.get("/", (req, res, next) => {
+  res.send(response(status.SUCCESS, "루트 페이지 입니다!"));
+});
 app.use("/temp", tempRouter);
 app.use("/member", memberRouter);
 app.use("/mission", missionRouter);
