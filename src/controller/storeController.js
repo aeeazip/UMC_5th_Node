@@ -4,8 +4,8 @@ import {
   writeReview,
   insertMission,
   insertMissionToMemberId,
-  getReview,
 } from "../service/storeService.js";
+import { getReview } from "../provider/storeProvider.js";
 
 // 1. 리뷰 작성 API
 export const reviewWrite = async (req, res, next) => {
@@ -36,6 +36,7 @@ export const challengeMission = async (req, res, next) => {
 
 // 4. 리뷰 조회 API
 export const reviewPreview = async (req, res, next) => {
+  console.log("리뷰 조회를 요청하였습니다!");
   return res.send(
     response(status.SUCCESS, await getReview(req.params.storeId, req.query))
   );

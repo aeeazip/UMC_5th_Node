@@ -71,12 +71,9 @@ paths:
               data:
                 type: object
                 example:
-                  {
-                    "email": "swaggerTest@mail.com",
-                    "name": "swagger",
-                    "preferCategory": ["한식", "일식"],
-                  }
-
+                  email: "swaggerTest@mail.com"
+                  name: "swagger"
+                  preferCategory: ["한식", "일식"]
         "400":
           description: 잘못된 요청
           schema:
@@ -94,7 +91,6 @@ paths:
               message:
                 type: string
                 example: 잘못된 요청입니다
-
         "500":
           description: 서버 에러
           schema:
@@ -116,9 +112,9 @@ paths:
   /member/:memberId/review:
     get:
       tags: Member
-        summary: 내가 작성한 리뷰 목록
+      summary: 내가 작성한 리뷰 목록
 
   /member/:memberId/mission:
     get:
       tags: Member
-        summary: 내가 진행중인 미션 목록
+      summary: 내가 진행중인 미션 목록

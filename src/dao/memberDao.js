@@ -120,7 +120,7 @@ export const getPreviewReviewByMemberId = async (cursorId, size, memberId) => {
 };
 
 // 내가 진행중인 미션 목록
-export const getMissionActiveByMemberId = async (cursorId, size, memberId) => {
+export const getPreviewMissionByMemberId = async (cursorId, size, memberId) => {
   try {
     const conn = await pool.getConnection();
 
