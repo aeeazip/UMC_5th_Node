@@ -1,7 +1,7 @@
-const nodeExternals = require("webpack-node-externals");
-const path = require("path");
+import nodeExternals from "webpack-node-externals";
+import path from "path";
 
-module.exports = {
+export default {
   mode: "development",
   context: __dirname + "/src",
   entry: {
