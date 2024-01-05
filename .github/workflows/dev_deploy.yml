@@ -71,8 +71,8 @@ jobs:
       - name: Beanstalk Deploy
         uses: einaregilsson/beanstalk-deploy@v21
         with:
-          aws_access_key: ${{secrets.AWS_ACTION_ACCESS_KEY_ID}}
-          aws_secret_key: ${{secrets.AWS_ACTION_SECRET_ACCESS_KEY}}
+          aws_access_key: ${{secrets.AWS_ACTION_ACCESS_KEY_ID}} # IAM 사용자 액세스 키
+          aws_secret_key: ${{secrets.AWS_ACTION_SECRET_ACCESS_KEY}} # IAM 사용자 비밀 액세스 키
           application_name: project-prod # ELB 애플리케이션 이름
           environment_name: Project-prod-env # ELB 환경 이름
           version_label: github-action-${{ steps.current-time.outputs.formattedTime }} # version_label은 이전에 배포한 label과 중복되면 안됨!
