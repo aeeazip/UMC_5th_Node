@@ -7,6 +7,7 @@ on:
 
 jobs:
   build:
+    name: CI Pipeline
     # pr 요청이 develop에 merge 되었을 때 아래 steps를 실행
     if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'develop'
 
@@ -37,8 +38,15 @@ jobs:
       - name: Install dependencies
         run: npm ci # dependencies 설치 npm ci, npm install 모두 다 됨!
 
+      # 빌드
       - name: Run Build
-        run: npm run build # 빌드
+        run: npm run build
+
+      # .env 파일 생성
+      - name: Create env file
+        run: |
+          touch .env
+          echo "${{ secrets.NODE_ENV_DEV }}" > .env
 
       # 배포 패키지 생성
       - name: Generate deployment package
